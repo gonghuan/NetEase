@@ -14,6 +14,7 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	  <context:component-scan base-package="com.netease.onlineEducation.learning.Dao"></context:component-scan>
+	  <context:component-scan base-package="com.netease.onlineEducation.learning.DaoImpl"></context:component-scan>
 	  <!-- 引入配置文件 -->
 	  <bean id="propertyConfigurer"
 	    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -46,6 +47,7 @@
   	  <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
 	  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource" />
+	    <property name="mapperLocations" value="classpath:com/netease/onlineEducation/learning/DaoImpl/*.xml"></property>
 	  </bean>
 	  
 	  <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->

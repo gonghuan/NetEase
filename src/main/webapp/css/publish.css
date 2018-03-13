@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+div.title{
+	width:100%;
+	text-align:left;
+	margin-bottom:30px;
+	font-size:20px;
+	border-bottom:1px solid #bbb;
+	padding-bottom:10px;
+}
+
+div.content{
+	width:70%;
+	margin:50px 15%;
+	text-align:center;
+}
+
+label{
+	line-height: 34px;
+}
+
+div.imgDiv{
+	width:150px;
+	height:150px; 
+	background-color:white;
+	position: absolute;
+	top:0px;
+	right:0px;
+}
+
+img{
+	width:150px;
+	height:150px;
+}
+
+div.publishDiv{
+	position: relative;
+}

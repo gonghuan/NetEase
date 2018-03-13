@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+div.content{
+	width:70%;
+	margin:50px 15%;
+	text-align:center;
+}
+
+div.title{
+	width:100%;
+	text-align:left;
+	margin-bottom:30px;
+	font-size:20px;
+	border-bottom:1px solid #bbb;
+	padding-bottom:10px;
+}
+
+span.minusSpan, span.addSpan{
+	border:1px solid #ccc;
+	padding:2px 5px;
+	text-align:center;
+	cursor:pointer;
+}
+
+span.addSpan{
+	padding:2px 4px;
+}

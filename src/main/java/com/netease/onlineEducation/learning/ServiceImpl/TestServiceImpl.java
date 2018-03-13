@@ -12,11 +12,12 @@ public class TestServiceImpl implements TestService {
 	
 	@Resource
 	private TestDao testDao;
-	
-	@Override
+
 	public boolean test(String name, String password) {
 		// TODO Auto-generated method stub
 		return (testDao.test(name, password) != null) ? true : false;
 	}
+	
+	
 
 }

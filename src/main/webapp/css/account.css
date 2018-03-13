@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+div.content{
+	width:70%;
+	margin:50px 15%;
+	text-align:center;
+}
+
+img{
+	width:100px;
+	height:100px;
+}
+
+div.title{
+	width:100%;
+	text-align:left;
+	margin-bottom:30px;
+	font-size:20px;
+	border-bottom:1px solid #bbb;
+	padding-bottom:10px;
+}

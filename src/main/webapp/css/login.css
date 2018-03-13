@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+div.content{
+	background-color:#fff;
+	width:380px;
+	height:224px;
+	border-radius:10px;
+	position:absolute;
+	top:calc(50% - 132px);
+	left:calc(50% - 190px);
+	box-shadow:0px 0px 10px #aaa;
+}
+
+form{
+	padding-top:40px;
+}
+
+div#errorDiv{
+	margin-top:10px;
+	text-align:center;
+	color:#ff0000;
+}
+
+button#loginBtn{
+	background-color: #172444;
+	width:150px;
+	color:#fff;
+}

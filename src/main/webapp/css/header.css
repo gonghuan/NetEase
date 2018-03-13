@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+.header{
+	width:100%;
+	background-color:#172444;
+	height:40px;
+	padding:10px 10%;
+	color: #fff;
+}
+
+.header a{
+	color:#fff;
+}
+
+.header a:hover{
+	text-decoration: none;
+	color: #0084ff;
+}
+
+.header .pullLeft{
+	margin-left:30px;
+}
+
+.header .pullRight{
+	margin-right:30px;
+}
+
+.nameSpan{
+	color:red;
+	font-size:18px;
+}
+
+.loginOutSpan{
+	line-height:25px;
+	cursor: pointer;
+}
+
+.loginOutSpan:hover{
+	color: '#0084ff';
+}

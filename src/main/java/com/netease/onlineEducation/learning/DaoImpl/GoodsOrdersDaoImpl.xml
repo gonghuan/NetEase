@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.netease.onlineEducation.learning.Dao.GoodsOrdersDao">
+	<resultMap type="com.netease.onlineEducation.learning.Model.GoodsOrdersDto" id="GoodsAndOrdersResultMap">
+		<!-- <association property="goods" resultMap="GoodsResultMap"></association> -->
+		<id column='id' property='id'/>
+		<result column='name' property='name'/>
+		<result column='abstracts' property='abstracts'/>
+		<result column='image' property='image'/>
+		<result column='price' property='price'/>
+		<result column='info' property='info'/>
+		<result column='ownerid' property='ownerid'/>
+		<association property="orders" resultMap="OrdersResultMap"></association>
+	</resultMap>
+	
+	<resultMap type="com.netease.onlineEducation.learning.Model.Goods" id="GoodsResultMap">
+		<result column='id' property='id'/>
+		<result column='name' property='name'/>
+		<result column='abstracts' property='abstracts'/>
+		<result column='image' property='image'/>
+		<result column='price' property='price'/>
+		<result column='info' property='info'/>
+		<result column='ownerid' property='ownerid'/>
+	</resultMap>
+	
+	<resultMap type="com.netease.onlineEducation.learning.Model.Orders" id="OrdersResultMap">
+		<result column="ordersid" property ='id'/>
+		<result column="userid" property="userid"/>
+		<result column="goodsid" property="goodsid" />
+		<result column="ordersprice" property="price"/>
+		<result column="amount" property="amount"/>
+		<result column="time" property="time"></result>
+	</resultMap>
+	
+	<select id="selectAllGoodsAndOrders" resultMap="GoodsAndOrdersResultMap">
+		select goods.id id, name, abstracts, image, goods.price price, info, ownerid, orders.id ordersid, 
+		userid, goodsid, orders.price ordersprice, amount, time from goods left join orders on goods.id = orders.goodsid
+	</select>
+	
+	<select id="selectAllGoodsAndOrdersByUserId" resultMap="GoodsAndOrdersResultMap">
+		select goods.id id, name, abstracts, image, goods.price price, info, ownerid, orders.id ordersid, 
+		userid, goodsid, orders.price ordersprice, amount, time from orders,goods where goods.id = orders.goodsid
+		and orders.userid = #{userId}
+	</select>
+</mapper>
