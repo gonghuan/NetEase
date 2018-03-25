@@ -84,7 +84,7 @@
 	  	<filter-class>com.netease.onlineEducation.learning.Filter.LoginFilter</filter-class>
 	  	<init-param>
 			<param-name>filter_url</param-name>
-			<param-value>/user/login;/login;/goods/listAllGoods;</param-value>
+			<param-value>/user/login;/login;/goods/listAllGoods;/show</param-value>
 		</init-param>
 	  </filter>
 	  <filter-mapping>

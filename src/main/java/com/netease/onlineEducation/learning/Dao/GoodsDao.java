@@ -2,6 +2,7 @@ package com.netease.onlineEducation.learning.Dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -23,4 +24,7 @@ public interface GoodsDao {
 	
 	@Insert("insert into goods(name, abstracts, image, price, info, ownerid) values(#{name}, #{abstracts}, #{image}, #{price}, #{info}, #{ownerid})")
 	public void InsertGoods(Goods goods);
+	
+	@Delete("delete from goods where id = #{id}")
+	public void DeleteById(int id);
 }

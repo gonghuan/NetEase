@@ -14,4 +14,6 @@ public interface GoodsService {
 	public void insertCart(Cart cart);
 	
 	public void insertGoods(Goods goods);
+	
+	public void deleteById(int id);
 }

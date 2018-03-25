@@ -41,6 +41,16 @@ div.priceDiv span.priceSpan{
 	font-size:18px;
 	font-weight:bold;
 	color:#ff0000;
+	display: inline-block;
+}
+
+div.priceDiv span.delSpan{
+	padding:5px 10px;
+	background-color:#172444;
+	color:white;
+	display: inline-block;
+	float: right;
+	cursor: pointer;
 }
 
 .had{

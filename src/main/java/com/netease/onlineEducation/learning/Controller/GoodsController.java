@@ -107,4 +107,14 @@ public class GoodsController {
 			}
 		}
 	}
+	
+	@RequestMapping(value="deleteById")
+	public @ResponseBody boolean deleteById(@RequestParam("id") int id){
+		try{
+			goodsService.deleteById(id);
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+	}
 }

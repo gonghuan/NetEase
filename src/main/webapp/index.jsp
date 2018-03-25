@@ -53,7 +53,12 @@
 					$('div#allGoodsDiv').html(html);
 					$('div.goodsDetailDiv').click(function(){
 						var id = $(this).data('id');
-						window.location.href = '${cp}/show?id=' + id;
+						if($(this).data('price') == 0 || $(this).data('price') == '0'){
+							window.location.href = '${cp}/show?id=' + id + '&price=' + 0;
+						}
+						else{
+							window.location.href= '${cp}/show?id=' + id + '&price=' + $(this).data('price');
+						}
 					});
 				},
 				error: function(data, e, status){
@@ -95,18 +100,19 @@
 							}
 						}
 						if(userId == 2 || userId == '2'){
-							if(data[i].orders == null || data[i].ownerid != userId){
+							if(data[i].orders == null){
 								html += "<div class='goodsDetailDiv' data-id='" + data[i].id +"' data-price='"+
 								0+"'><img src='" + data[i].image
 								+ "'/><div class='nameDiv'>" + data[i].name +
 								"</div><div class='priceDiv'><span>￥ </span><span class='priceSpan'>" + 
-								data[i].price + "</span></div></div>";
+								data[i].price + "</span><span class='delSpan'>删除</span></div></div>";
 							}else{
 								html += "<div class='goodsDetailDiv' data-id='" + data[i].id +"' data-price='"+
 								data[i].orders.price+"'><img src='" + data[i].image
 								+ "'/><div class='nameDiv'>" + data[i].name +
 								"</div><div class='priceDiv'><span>￥ </span><span class='priceSpan'>" + 
-								data[i].price + "</span></div><span class='had'><b>已售出</b></span></div>";
+								data[i].price + "</span></div><span class='had'><b>已售"+
+								data[i].orders.amount+"</b></span></div>";
 							}
 						}
 					}
@@ -119,6 +125,28 @@
 						}
 						else{
 							window.location.href= '${cp}/show?id=' + id + '&price=' + $(this).data('price');
+						}
+					});
+					$('span.delSpan').click(function(){
+						if(confirm("确认删除该商品吗？")){
+							var id = $(this).parents('div.goodsDetailDiv').data('id');
+							$.ajax({
+								url: '${cp}/goods/deleteById',
+								type: 'post',
+								data:{'id': id},
+								success: function(data){
+									if(data == true || data == 'true'){
+										location.reload();
+									}else{
+										alert('发生未知错误');	
+									}
+								},
+								error: function(data, e, status){
+									alert('发生未知错误');
+									console.log(e);
+									console.log(status);
+								}
+							});
 						}
 					});
 				},

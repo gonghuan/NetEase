@@ -41,4 +41,10 @@ public class GoodsServiceImpl implements GoodsService {
 		goodsDao.InsertGoods(goods);
 	}
 
+	@Override
+	public void deleteById(int id) {
+		// TODO Auto-generated method stub
+		goodsDao.DeleteById(id);
+	}
+
 }
