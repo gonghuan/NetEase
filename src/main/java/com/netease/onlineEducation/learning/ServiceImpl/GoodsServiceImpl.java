@@ -47,4 +47,10 @@ public class GoodsServiceImpl implements GoodsService {
 		goodsDao.DeleteById(id);
 	}
 
+	@Override
+	public void updateById(Goods goods) {
+		// TODO Auto-generated method stub
+		goodsDao.updateById(goods);
+	}
+
 }

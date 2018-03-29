@@ -72,13 +72,27 @@ public class GoodsController {
 		String info = request.getParameter("info");
 		String Price = request.getParameter("price");
 		double price = Double.parseDouble(Price);
-		int ownerId = ((User)request.getSession().getAttribute("user")).getId();
-		Goods goods = new Goods(name, abstracts, image, price, info, ownerId);
-		try{
-			goodsService.insertGoods(goods);
-			return true;
-		}catch(Exception e){
-			return false;
+		String goodsId = request.getParameter("id");
+		if(goodsId == null){
+			int ownerId = ((User)request.getSession().getAttribute("user")).getId();
+			Goods goods = new Goods(name, abstracts, image, price, info, ownerId);
+			try{
+				goodsService.insertGoods(goods);
+				return true;
+			}catch(Exception e){
+				e.printStackTrace();
+				return false;
+			}
+		}else{
+			int id = Integer.parseInt(goodsId);
+			Goods goods = new Goods(id, name, abstracts, image, price, info);
+			try{
+				goodsService.updateById(goods);
+				return true;
+			}catch(Exception e){
+				e.printStackTrace();
+				return false;
+			}
 		}
 	}
 	
@@ -114,6 +128,7 @@ public class GoodsController {
 			goodsService.deleteById(id);
 			return true;
 		}catch(Exception e){
+			e.printStackTrace();
 			return false;
 		}
 	}

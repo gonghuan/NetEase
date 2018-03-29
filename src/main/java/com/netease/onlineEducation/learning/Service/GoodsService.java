@@ -16,4 +16,6 @@ public interface GoodsService {
 	public void insertGoods(Goods goods);
 	
 	public void deleteById(int id);
+	
+	public void updateById(Goods goods);
 }

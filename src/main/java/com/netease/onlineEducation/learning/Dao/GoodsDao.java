@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.netease.onlineEducation.learning.Model.Cart;
@@ -27,4 +28,7 @@ public interface GoodsDao {
 	
 	@Delete("delete from goods where id = #{id}")
 	public void DeleteById(int id);
+	
+	@Update("update goods set name=#{name}, abstracts=#{abstracts}, image=#{image}, price=#{price}, info=#{info} where id=#{id}")
+	public void updateById(Goods goods);
 }

@@ -41,7 +41,7 @@
 				</div>
 				<div class='form-group'>
 					<div class=' col-md-offset-2 col-sm-8'>
-						<input type='text' class='form-control' id='imageUrl' placeholder='图片地址' name='imageUrl'>
+						<input type='text' class='form-control' id='imageUrl' placeholder='图片地址' name='imageUrl' value='${goods.image }'>
 						<input type='file' class='file' id='imgFile' name='file'>
 						<button type='button' class='btn btn-primary' id='uploadImgBtn'>上传</button>
 						
@@ -69,6 +69,7 @@
 				<div class='imgDiv'>
 					<img src='${goods.getImage() }'>
 				</div>
+				<input type="hidden" name="id" value='${goods.id }'>
 			</form>
 		</div>
 	</div>

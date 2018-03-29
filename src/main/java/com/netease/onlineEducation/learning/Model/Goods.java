@@ -26,6 +26,17 @@ public class Goods {
 		this.info = info;
 		this.ownerid = ownerid;
 	}
+	
+	
+	public Goods(int id, String name, String abstracts, String image, double price, String info) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.abstracts = abstracts;
+		this.image = image;
+		this.price = price;
+		this.info = info;
+	}
 	public int getOwnerid() {
 		return ownerid;
 	}
